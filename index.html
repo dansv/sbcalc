@@ -16,15 +16,29 @@
     </section>
   
     <section class="main-content">
-
-        <label>Add Opponents deck</label><input type="text" id="add_opp" placeholder="Name of an opponents deck">
-        <h2>Opposing Decks</h2>
-        <div id="opp_decks"></div>
-        <h2>Great cards</h2>
-        <div id="result"></div>
+      <label>Add Opponents deck</label><input type="text" id="deck_name" placeholder="Name of an opponents deck">
+      <button type="button" id="add_opp_deck">Spara</button>
+      <h2>Opposing Decks</h2>
+      <div id="opp_decks"></div>
+      <h2>Great cards</h2>
+      <div id="result"></div>
     </section>
-
-
+    <!-- Hämta calculations.js -->
+    <script type="text/javascript">
+      let deck_names = New Array()
+      $(document).ready(function(){
+        $("#add_opp_deck").on("click", function(){
+          if ($("#deck_name").val() !== "") {
+            deck_names.push($("#deck_name").val())
+          }
+          $("#opp_decks").html("<ul>")
+          $.each(deck_names, function(key, value){
+            $("#opp_decks").append("<li>" + value + "</li>")
+          })
+          $("#opp_decks").append("</ul>")
+        })
+      })
+    </script>
   
   </body>
 </html>
