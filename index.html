@@ -29,6 +29,8 @@
       let deck_names = New Array()
       $(document).ready(function(){
         $("#add_opp_deck").on("click", function(){
+          console.log("we in")
+          console.log($("#deck_name").val())
           if ($("#deck_name").val() !== "") {
             deck_names.push($("#deck_name").val())
           }
