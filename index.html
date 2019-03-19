@@ -72,9 +72,9 @@
             console.log("Got ratings.json")
             $.each(response, function(key, deck) {
               console.log("key: " + key)
-              let deck_name = ""
-              let cards = []
               $.each(deck, function (key2, val2) {
+                let deck_name = ""
+                let cards = []
                 console.log("key2: " + key2)
                 console.log(val2)
                 if (key2 == "deck_name") {
