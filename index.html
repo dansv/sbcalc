@@ -34,7 +34,7 @@
         $("div#result").append("</ul>")
       }
       function updateScores(deck_name, scores, ratings) {
-        
+
         return scores
       }
       $(document).ready(function() {
@@ -47,7 +47,7 @@
           success: function(response) {
             console.log("Got score.json")
             $.each(response, function(key, val) {
-              scores.push([key, val])
+              scores[key] = val
               console.log("key: " + key)
               console.log("val: " + val)
             });
