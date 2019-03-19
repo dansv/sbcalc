@@ -27,7 +27,7 @@
     <!-- Hämta calculations.js -->
     <script type="text/javascript">
       function printTable(scores) {
-        $("div#result").html("<table><thead><th>Card</th><th>Score</th></thead><tbody>")
+        $("div#result").html("<table><thead><th>Card name</th><th>Score</th></thead><tbody>")
         console.log("scores")
         console.log(scores)
         $.each(scores, function(key, obj) {
@@ -73,15 +73,29 @@
           dataType: "json",
           success: function(response) {
             console.log("Got ratings.json")
-            $.each(response, function(key, val) {
+            $.each(response, function(key, deck) {
               console.log("key: " + key)
-              $.each(val, function (key2, val2) {
+              let deck_name = ""
+              let cards = []
+              $.each(deck, function (key2, val2) {
                 console.log("key2: " + key2)
                 console.log(val2)
+                if (key2 == "deck_name") {
+                  deck_name = val2
+                }
+                if (key2 == "cards") {
+                  $.each(val2, function(card, rating){
+                    cards.push({card: card, score: rating})
+                  })
+                }
+              ratings.push({deck: deck_name, cards: cards})
+              console.log("ratings")
+              console.log(ratings)
               })
             })
           }
         })
+        
         $("#add_opp_deck").on("click", function(){
           let deck_name = $("#deck_name").val()
           console.log(deck_name)
