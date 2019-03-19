@@ -30,11 +30,8 @@
         $("div#result").html("<ul>")
         console.log("scores")
         console.log(scores)
-        $.each(scores, function(key, val) {
-          console.log("scores key val: ")
-          console.log(key)
-          console.log(val)
-          $("div#result").append("<li>" + key + ": " + val + "</li>")  
+        $.each(scores, function(key, obj) {
+          $("div#result").append("<li>" + obj.card + ": " + obj.score + "</li>")  
         })
         $("div#result").append("</ul>")
       }
@@ -53,8 +50,6 @@
             console.log("Got score.json")
             $.each(response, function(key, val) {
               scores.push({card: key, score: val})
-              console.log("key: " + key)
-              console.log("val: " + val)
             })
             printTable(scores)
           }
