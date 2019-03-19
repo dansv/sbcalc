@@ -35,7 +35,7 @@
       }
       function updateScores(deck_name, scores, ratings) {
         $.each(ratings, function(key, rating) {
-          if (deck_name == rating.deck_name) {
+          if (deck_name == rating.deck) {
             console.log("rating.cards")
             console.log(rating.cards)
             $.each(scores, function(key2, score) {
@@ -104,6 +104,7 @@
             $("#opp_decks").append("<li>" + value + "</li>")
           })
           $("#opp_decks").append("</ul>")
+          scores = updateScores(deck_name, scores, ratings)
           printTable(scores)
         })
       })
