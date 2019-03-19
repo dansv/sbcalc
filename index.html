@@ -70,11 +70,11 @@
           dataType: "json",
           success: function(response) {
             console.log("Got ratings.json")
-            $.each(response, function(key, deck) {
+            $.each(response, function(key, val) {
               console.log("key: " + key)
-              $.each(deck, function (key2, val2) {
-                let deck_name = ""
-                let cards = []
+              let deck_name = ""
+              let cards = []
+              $.each(val, function (key2, val2) {
                 console.log("key2: " + key2)
                 console.log(val2)
                 if (key2 == "deck_name") {
@@ -85,8 +85,8 @@
                     cards.push({card: card, score: rating})
                   })
                 }
-                ratings.push({deck: deck_name, cards: cards})
               })
+              ratings.push({deck: deck_name, cards: cards})
             })
             console.log("ratings")
             console.log(ratings)
