@@ -27,14 +27,14 @@
     <!-- Hämta calculations.js -->
     <script type="text/javascript">
       function printTable(scores) {
-        $("div#result").html("<ul>")
+        $("div#result").html("<table><thead><th>Card</th><th>Score</th></thead><tbody>")
         console.log("scores")
         console.log(scores)
         $.each(scores, function(key, obj) {
           console.log(obj)
-          $("div#result").append("<li>" + obj.card + ": " + obj.score + "</li>")  
+          $("div#result").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
-        $("div#result").append("</ul>")
+        $("div#result").append("</tbody></table>")
       }
       function updateScores(deck_name, scores, ratings) {
         $.each(ratings, function(key, rating) {
