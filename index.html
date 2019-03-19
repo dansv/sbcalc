@@ -44,9 +44,13 @@
           url: "ratings.json",
           dataType: "json",
           success: function(response) {
+            console.log("Got ratings.json")
             $.each(response, function(key, val) {
               console.log("key: " + key)
-              console.log("val: " + val)
+              $.each(val, function (key2, val2) {
+                console.log("key2: " + key2)
+                console.log("val2: " + val2)
+              })
             });
           }
         })
