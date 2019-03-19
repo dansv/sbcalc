@@ -34,10 +34,13 @@
           url: "score.json",
           dataType: "json",
           success: function(response) {
+            console.log("Got score.json")
             $.each(response, function(key, val) {
+              scores.push([key, val])
               console.log("key: " + key)
               console.log("val: " + val)
             });
+            console.log(scores)
           }
         })
         $.ajax({
