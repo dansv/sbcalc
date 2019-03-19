@@ -1,32 +1,34 @@
-{
-	"elves" : {
+[
+	{
+		"deck_name": "elves",
 		"cards":{
-			"aegis_of_the_gods_1" : "0",
-			"anafenza_the_foremost" : "20",
-			"auriok_champion_1" : "0",
-			"auriok_champion_2" : "0",
-			"avacyns_pilgrim_1" : "30",
-			"avacyns_pilgrim_2" : "30",
-			"azorious_arrester_1" : "80",
-			"azorious_arrester_2" : "80",
-			"blessed_alliance_1" : "20",
-			"damping_Sphere_1" : "0",
-			"damping_sphere_2" : "0"
+			"aegis_of_the_gods_1" : 0,
+			"anafenza_the_foremost" : 20,
+			"auriok_champion_1" : 0,
+			"auriok_champion_2" : 0,
+			"avacyns_pilgrim_1" : 30,
+			"avacyns_pilgrim_2" : 30,
+			"azorious_arrester_1" : 80,
+			"azorious_arrester_2" : 80,
+			"blessed_alliance_1" : 20,
+			"damping_Sphere_1" : 0,
+			"damping_sphere_2" : 0
 		}
 	},
-	"amulet_titan": {
-		"cards": {
-			"aegis_of_the_gods_1" : "0",
-			"anafenza_the_foremost" : "10",
-			"auriok_champion_1" : "0",
-			"auriok_champion_2" : "0",
-			"avacyns_pilgrim_1" : "10",
-			"avacyns_pilgrim_2" : "10",
-			"azorious_arrester_1" : "0",
-			"azorious_arrester_2" : "0",
-			"blessed_alliance_1" : "50",
-			"damping_sphere_1" : "100",
-			"damping_sphere_2" : "100"
+	{
+		"deck_name": "amulet_titan",
+		"cards":{
+			"aegis_of_the_gods_1" : 0,
+			"anafenza_the_foremost" : 10,
+			"auriok_champion_1" : 0,
+			"auriok_champion_2" : 0,
+			"avacyns_pilgrim_1" : 10,
+			"avacyns_pilgrim_2" : 10,
+			"azorious_arrester_1" : 0,
+			"azorious_arrester_2" : 0,
+			"blessed_alliance_1" : 50,
+			"damping_sphere_1" : 100,
+			"damping_sphere_2" : 100
 		}
 	}
-}
+]

@@ -31,12 +31,26 @@
         console.log("scores")
         console.log(scores)
         $.each(scores, function(key, obj) {
+          console.log(obj)
           $("div#result").append("<li>" + obj.card + ": " + obj.score + "</li>")  
         })
         $("div#result").append("</ul>")
       }
       function updateScores(deck_name, scores, ratings) {
-
+        $.each(ratings, function(key, rating) {
+          if (deck_name == rating.deck_name) {
+            console.log("rating.cards")
+            console.log(rating.cards)
+            $.each(scores, function(key2, score) {
+              console.log(score.card)
+              $.each(rating.cards, function(key3, card) {
+                if (score.card == card.name) {
+                  score.score += card.score
+                }
+              })
+            })
+          }
+        })
         return scores
       }
       $(document).ready(function() {
