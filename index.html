@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>SB calc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Local meta Humans sideboard calculator</h1>
+      <h2>A way to calculate the optimal sideboard and flex slots for humans</h2>
+    </section>
+  
+    <section class="main-content">
+      <label>Add Opponents deck</label><input type="text" id="deck_name" placeholder="Name of an opponents deck">
+      <button type="button" id="add_opp_deck">Spara</button>
+      <h2>Opposing Decks</h2>
+      <div id="opp_decks"></div>
+      <h2>Great cards</h2>
+      <div id="result"></div>
+    </section>
+    <!-- Hämta calculations.js -->
+    <script type="text/javascript">
+      
+      $(document).ready(function() {
+        let deck_names = []
+        let scores = []
+        let ratings = []
+        $.ajax({
+          url: "scores.json",
+          dataType: "json",
+          success: function(response) {
+            $.each(response, function(key, val) {
+              console.log("key: " + key)
+              console.log("val: " + val)
+            });
+          }
+        })
+        $.ajax({
+          url: "ratings.json",
+          dataType: "json",
+          success: function(response) {
+            $.each(response, function(key, val) {
+              console.log("key: " + key)
+              console.log("val: " + val)
+            });
+          }
+        })
+        $("#add_opp_deck").on("click", function(){
+          console.log("we in")
+          console.log($("#deck_name").val())
+          if ($("#deck_name").val() !== "") {
+            deck_names.push($("#deck_name").val())
+          }
+          $("#opp_decks").html("<ul>")
+          $.each(deck_names, function(key, value){
+            $("#opp_decks").append("<li>" + value + "</li>")
+          })
+          $("#opp_decks").append("</ul>")
+        })
+      })
+    </script>
+  
+  </body>
+</html>
