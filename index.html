@@ -26,6 +26,17 @@
     </section>
     <!-- Hämta calculations.js -->
     <script type="text/javascript">
+      function printTable(scores) {
+        $("div#result").html("<ul>")
+        $.each(scores, function(key, val) {
+          $("div#result").append("<li>" + key + ": " + val + "</li>")  
+        })
+        $("div#result").append("</ul>")
+      }
+      function updateScores(deck_name, scores, ratings) {
+        
+        return scores
+      }
       $(document).ready(function() {
         let deck_names = []
         let scores = []
@@ -40,7 +51,7 @@
               console.log("key: " + key)
               console.log("val: " + val)
             });
-            console.log(scores)
+            printTable(scores)
           }
         })
         $.ajax({
@@ -58,16 +69,19 @@
           }
         })
         $("#add_opp_deck").on("click", function(){
-          console.log("we in")
-          console.log($("#deck_name").val())
-          if ($("#deck_name").val() !== "") {
-            deck_names.push($("#deck_name").val())
+          
+          let deck_name = $("#deck_name").val()
+          console.log(deck_name)
+          if (deck_name !== "") {
+            deck_names.push(deck_name)
           }
           $("#opp_decks").html("<ul>")
           $.each(deck_names, function(key, value){
             $("#opp_decks").append("<li>" + value + "</li>")
           })
           $("#opp_decks").append("</ul>")
+
+          printTable(scores)
         })
       })
     </script>

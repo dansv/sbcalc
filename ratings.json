@@ -1,6 +1,5 @@
-[
-	{
-		"deck": "Elves",
+{
+	"elves" : {
 		"cards":{
 			"aegis_of_the_gods_1" : "0",
 			"anafenza_the_foremost" : "20",
@@ -15,8 +14,7 @@
 			"damping_sphere_2" : "0"
 		}
 	},
-	{
-		"deck": "Amulet Titan",
+	"amulet_titan": {
 		"cards": {
 			"aegis_of_the_gods_1" : "0",
 			"anafenza_the_foremost" : "10",
@@ -31,4 +29,4 @@
 			"damping_sphere_2" : "100"
 		}
 	}
-]
+}
