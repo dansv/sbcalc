@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>SB calc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="normalize.css" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="github-light.css" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
@@ -28,7 +28,12 @@
     <script type="text/javascript">
       function printTable(scores) {
         $("div#result").html("<ul>")
+        console.log("scores")
+        console.log(scores)
         $.each(scores, function(key, val) {
+          console.log("scores key val: ")
+          console.log(key)
+          console.log(val)
           $("div#result").append("<li>" + key + ": " + val + "</li>")  
         })
         $("div#result").append("</ul>")
@@ -47,10 +52,10 @@
           success: function(response) {
             console.log("Got score.json")
             $.each(response, function(key, val) {
-              scores[key] = val
+              scores.push({card: key, score: val})
               console.log("key: " + key)
               console.log("val: " + val)
-            });
+            })
             printTable(scores)
           }
         })
@@ -65,7 +70,7 @@
                 console.log("key2: " + key2)
                 console.log("val2: " + val2)
               })
-            });
+            })
           }
         })
         $("#add_opp_deck").on("click", function(){
