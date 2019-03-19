@@ -28,10 +28,7 @@
     <script type="text/javascript">
       function printTable(scores) {
         $("div#result").html("<table><thead><th>Card name</th><th>Score</th></thead><tbody>")
-        console.log("scores")
-        console.log(scores)
         $.each(scores, function(key, obj) {
-          console.log(obj)
           $("div#result").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
         $("div#result").append("</tbody></table>")
@@ -88,14 +85,14 @@
                     cards.push({card: card, score: rating})
                   })
                 }
-              ratings.push({deck: deck_name, cards: cards})
-              console.log("ratings")
-              console.log(ratings)
+                ratings.push({deck: deck_name, cards: cards})
+                console.log("ratings")
+                console.log(ratings)
               })
             })
           }
         })
-        
+
         $("#add_opp_deck").on("click", function(){
           let deck_name = $("#deck_name").val()
           console.log(deck_name)
