@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>SB calc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="normalize.css" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
@@ -27,7 +28,7 @@
     <!-- Hämta calculations.js -->
     <script type="text/javascript">
       function printTable(scores) {
-        $("div#result").html("<table><thead><th>Card name</th><th>Score</th></thead><tbody>")
+        $("div#result").html('<table class="table"><thead><th>Card name</th><th>Score</th></thead><tbody>')
         $.each(scores, function(key, obj) {
           $("div#result").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
