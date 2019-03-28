@@ -45,7 +45,7 @@
         $.each(scores, function(key, obj) {
           $("#resulttable").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
-        $(".tablesorter").tablesorter({ sortList: [[2,1]] });
+        $(".tablesorter").tablesorter({ sortList: [[1,1]] });
       }
       function updateScores(deck_name, scores, ratings) {
         $.each(ratings, function(key, rating) {
