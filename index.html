@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="normalize.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="normalize.css" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="github-light.css" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="jquery.tablesorter.min.js"></script>
+    <script src="jquery.tablesorter.widgets.min.js"></script>
+    <script src="jquery.tablesorter.widgets-filter-formatter.min.js"></script>
   </head>
   <body>
     <section class="page-header">
@@ -42,15 +45,15 @@
         $.each(scores, function(key, obj) {
           $("#resulttable").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
-        $(".tablesorter").tablesorter({ sortList: [[0,0], [1,0]] });
+        $(".tablesorter").tablesorter({ sortList: [[2,1]] });
       }
       function updateScores(deck_name, scores, ratings) {
         $.each(ratings, function(key, rating) {
           if (deck_name == rating.deck) {
-            console.log("rating.cards")
-            console.log(rating.cards)
+            //console.log("rating.cards")
+            //console.log(rating.cards)
             $.each(scores, function(key2, score) {
-              console.log(score.card)
+              //console.log(score.card)
               $.each(rating.cards, function(key3, card) {
                 if (score.card == card.name) {
                   score.score += card.score
@@ -82,12 +85,12 @@
           success: function(response) {
             console.log("Got ratings.json")
             $.each(response, function(key, val) {
-              console.log("key: " + key)
+              //console.log("key: " + key)
               let deck_name = ""
               let cards = []
               $.each(val, function (key2, val2) {
-                console.log("key2: " + key2)
-                console.log(val2)
+                //console.log("key2: " + key2)
+                //console.log(val2)
                 if (key2 == "deck_name") {
                   deck_name = val2
                 }
@@ -100,13 +103,13 @@
               ratings.push({deck: deck_name, cards: cards})
             })
             console.log("ratings")
-            console.log(ratings)
+            //console.log(ratings)
           }
         })
 
         $("#add_opp_deck").on("click", function(){
           let deck_name = $("#deck_name").val()
-          console.log(deck_name)
+          //console.log(deck_name)
           if (deck_name !== "") {
             deck_names.push(deck_name)
           }
