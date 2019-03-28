@@ -10,29 +10,38 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="github-light.css" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery.tablesorter.min.js"></script>
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Local meta Humans sideboard calculator</h1>
-      <h2>A way to calculate the optimal sideboard and flex slots for humans</h2>
+      <h1 class="project-name">Good Humans</h1>
+      <h2>... and other assorted goodies</h2>
     </section>
   
     <section class="main-content">
-      <label>Add Opponents deck</label><input type="text" id="deck_name" placeholder="Name of an opponents deck">
+      <label>Add Opponent deck:</label><input type="text" id="deck_name" placeholder="Name of an opponents deck">
       <button type="button" id="add_opp_deck">Spara</button>
       <h2>Opposing Decks</h2>
       <div id="opp_decks"></div>
       <h2>Great cards</h2>
-      <div id="result"></div>
+      <div id="result">
+        <table class="tablesorter" >
+          <thead>
+            <th>Card name</th>
+            <th>Score</th>
+          </thead>
+          <tbody id="resulttable">
+          </tbody>
+        </table>
+      </div>
     </section>
     <!-- Hämta calculations.js -->
     <script type="text/javascript">
       function printTable(scores) {
-        $("div#result").html('<table class="table"><thead><th>Card name</th><th>Score</th></thead><tbody>')
+        $("#resulttable").html('')
         $.each(scores, function(key, obj) {
-          $("div#result").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
+          $("#resulttable").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
-        $("div#result").append("</tbody></table>")
       }
       function updateScores(deck_name, scores, ratings) {
         $.each(ratings, function(key, rating) {
@@ -55,6 +64,7 @@
         let deck_names = []
         let scores = []
         let ratings = []
+        $(".tablesorter").tablesorter();
         $.ajax({
           url: "score.json",
           dataType: "json",
