@@ -28,12 +28,12 @@
       <div id="opp_decks"></div>
       <h2>Great cards</h2>
       <div id="result">
-        <table class="tablesorter" >
+        <table class="tablesorter" id="resulttable">
           <thead>
             <th>Card name</th>
             <th>Score</th>
           </thead>
-          <tbody id="resulttable">
+          <tbody id="resulttable_body">
           </tbody>
         </table>
       </div>
@@ -41,9 +41,9 @@
     <!-- Hämta calculations.js -->
     <script type="text/javascript">
       function printTable(scores) {
-        $("#resulttable").html('')
+        $("#resulttable_body").html('')
         $.each(scores, function(key, obj) {
-          $("#resulttable").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
+          $("#resulttable_body").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
         $("#resulttable").tablesorter({ sortList: [[0,1]] });
       }
