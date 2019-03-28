@@ -45,7 +45,12 @@
         $.each(scores, function(key, obj) {
           $("#resulttable_body").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
-        $("#resulttable").tablesorter({ sortList: [[1,1]] });
+        $("#resulttable").tablesorter({ 
+          sortList: [[1,1]],
+          headers: {
+            1: { sorter: 'digit' }
+          }
+        });
       }
       function updateScores(deck_name, scores, ratings) {
         $.each(ratings, function(key, rating) {
