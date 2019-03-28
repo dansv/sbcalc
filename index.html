@@ -46,8 +46,11 @@
           $("#resulttable_body").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
         $('table').trigger('sortReset');
-        $("#resulttable").tablesorter({sortList: [[0,1]]})
-      }
+        $("#resulttable").tablesorter(
+        {
+          theme : 'blue',
+          sortList: [ [0,1] ]
+        })
       function updateScores(deck_name, scores, ratings) {
         $.each(ratings, function(key, rating) {
           if (deck_name == rating.deck) {
