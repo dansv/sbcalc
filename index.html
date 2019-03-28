@@ -46,10 +46,8 @@
           $("#resulttable_body").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
         $("#resulttable").tablesorter({ 
-          sortList: [[1,1]],
-          headers: {
-            1: { sorter: 'digit' }
-          }
+          sortList: [[0,1]]
+          
         });
       }
       function updateScores(deck_name, scores, ratings) {
