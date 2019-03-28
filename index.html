@@ -9,11 +9,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="theme.blue.css" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="jquery.tablesorter.min.js"></script>
-    <script src="jquery.tablesorter.widgets.min.js"></script>
-    <script src="jquery.tablesorter.widgets-filter-formatter.min.js"></script>
   </head>
   <body>
     <section class="page-header">
@@ -54,7 +50,7 @@
           $("#resulttable_body").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
       }
-      
+
       function updateScores(deck_name, scores, ratings) {
         $.each(ratings, function(key, rating) {
           if (deck_name == rating.deck) {
