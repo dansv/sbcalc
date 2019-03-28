@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="normalize.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="normalize.css" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="theme.blue.css" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="jquery.tablesorter.min.js"></script>
     <script src="jquery.tablesorter.widgets.min.js"></script>
@@ -47,8 +47,7 @@
         })
         $("#resulttable").tablesorter({ 
           sortList: [[0,1]]
-          
-        });
+        })
       }
       function updateScores(deck_name, scores, ratings) {
         $.each(ratings, function(key, rating) {
@@ -121,7 +120,7 @@
             $("#opp_decks").append("<li>" + value + "</li>")
           })
           $("#opp_decks").append("</ul>")
-          scores = updateScores(deck_name, scores, ratings)
+          scores = await updateScores(deck_name, scores, ratings)
           printTable(scores)
         })
       })
