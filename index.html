@@ -28,7 +28,7 @@
       <div id="opp_decks"></div>
       <h2>Great cards</h2>
       <div id="result">
-        <table class="tablesorter" id="resulttable">
+        <table id="resulttable">
           <thead>
             <th>Card name</th>
             <th>Score</th>
@@ -45,9 +45,7 @@
         $.each(scores, function(key, obj) {
           $("#resulttable_body").append("<tr><td>" + obj.card + "</td><td>" + obj.score + "</td></tr>")  
         })
-        $("#resulttable").tablesorter({ 
-          sortList: [[0,1]]
-        })
+        $("#resulttable").tablesorter()
       }
       function updateScores(deck_name, scores, ratings) {
         $.each(ratings, function(key, rating) {
@@ -64,7 +62,7 @@
             })
           }
         })
-        return scores
+        printTable(scores)
       }
       $(document).ready(function() {
         let deck_names = []
@@ -120,8 +118,7 @@
             $("#opp_decks").append("<li>" + value + "</li>")
           })
           $("#opp_decks").append("</ul>")
-          scores = await updateScores(deck_name, scores, ratings)
-          printTable(scores)
+          updateScores(deck_name, scores, ratings)
         })
       })
     </script>
