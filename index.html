@@ -125,6 +125,9 @@
 
         $("#add_opp_deck").on("click", function(){
           let deck_name = $("#deck_name").val()
+          if (deck_name === "") {
+            deck_name = $("#opponent_deck").val()
+          }
           //console.log(deck_name)
           if (deck_name !== "") {
             deck_names.push(deck_name)
