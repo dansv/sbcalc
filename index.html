@@ -19,12 +19,11 @@
   
     <section class="main-content">
       <label>Add Opponent deck:</label>
-      <input type="text" id="deck_name" placeholder="Name of an opponents deck">
       <select id="opponent_deck">
         <option value="" selected="selected">No deck chosen</option>
         <!-- filled by jquery -->
       </select>
-      <button type="button" id="add_opp_deck">Spara</button>
+      <button type="button" id="add_opp_deck">Add</button>
       <h2>Opposing Decks</h2>
       <div id="opp_decks"></div>
       <h2>Great cards</h2>
@@ -120,10 +119,7 @@
         })
 
         $("#add_opp_deck").on("click", function(){
-          let deck_name = $("#deck_name").val()
-          if (deck_name === "") {
-            deck_name = $("#opponent_deck").val()
-          }
+          deck_name = $("#opponent_deck").val()
           //console.log(deck_name)
           if (deck_name !== "") {
             deck_names.push(deck_name)
