@@ -74,11 +74,7 @@
         scores.sort(compareScores)
         printTable(scores)
       }
-      function opponentDeckOptions(ratings){
-        $.each(scores, function(key, rating){
-          $("#opponent_deck").append("<option value='" + rating.deck + "'>" + rating.deck + "</option>")
-        })
-      }
+      
       $(document).ready(function() {
         let deck_names = []
         let scores = []
@@ -116,10 +112,10 @@
                 }
               })
               ratings.push({deck: deck_name, cards: cards})
+              $("#opponent_deck").append("<option value='" + deck_name + "'>" + deck_name + "</option>")
             })
             //console.log("ratings")
             //console.log(ratings)
-            opponentDeckOptions(ratings)
           }
         })
 
