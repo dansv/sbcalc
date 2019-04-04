@@ -13,12 +13,17 @@
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Good Humans</h1>
+      <h1 class="project-name">Humans...</h1>
       <h2>... and other assorted goodies</h2>
     </section>
   
     <section class="main-content">
-      <label>Add Opponent deck:</label><input type="text" id="deck_name" placeholder="Name of an opponents deck">
+      <label>Add Opponent deck:</label>
+      <input type="text" id="deck_name" placeholder="Name of an opponents deck">
+      <select id="opponent_deck">
+        <option value="" selected="selected">No deck chosen</option>
+        <!-- filled by jquery -->
+      </select>
       <button type="button" id="add_opp_deck">Spara</button>
       <h2>Opposing Decks</h2>
       <div id="opp_decks"></div>
@@ -69,6 +74,11 @@
         scores.sort(compareScores)
         printTable(scores)
       }
+      function opponentDeckOptions(ratings){
+        $.each(scores, function(key, rating){
+          $("#opponent_deck").append("<option value='" + rating.deck + "'>" + rating.deck + "</option>")
+        })
+      }
       $(document).ready(function() {
         let deck_names = []
         let scores = []
@@ -107,8 +117,9 @@
               })
               ratings.push({deck: deck_name, cards: cards})
             })
-            console.log("ratings")
+            //console.log("ratings")
             //console.log(ratings)
+            opponentDeckOptions(ratings)
           }
         })
 
